@@ -25,3 +25,5 @@ com um usuário (aluno ou professor) da biblioteca<br>
 pode fazer as seguinte operações:<br>
 •  Alterar os dados do objeto;<br>
 •  Excluir o objeto da estrutura de dados.<br>
+
+JFRAME - Projete e implemente as telas para o sistema da Biblioteca Universitária da Unisul.
