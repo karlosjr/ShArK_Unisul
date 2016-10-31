@@ -1,5 +1,5 @@
 
-<h1>Unisul | Tópicos avançados de Programação | Prog 2 - Repositorio</h1>
+<h1>Unisul <br>| Tópicos avançados de Programação | <br>Prog 2 - Repositorio</h1>
 <h2>Trabalho Integrador<h2>
 <h4>Carlos Roberto Arthur Junior</h4>
 
