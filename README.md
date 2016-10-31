@@ -11,7 +11,7 @@ Trabalho Integrador
      • Um livro deve ter uma lista de exemplares. <br>
 – O sistema deve permitir o vinculo de um exemplar<br>
 com um usuário (aluno ou professor) da biblioteca<br>
-     • Cada usuário pode ter até 5 livros emprestados simultaneamente (não é permitido pegar mais de um exemplar do mesmo<br> livro)<br>
+     • Cada usuário pode ter até 5 livros emprestados simultaneamente (não é permitido pegar mais de um exemplar do mesmo livro)<br>
      
  •  Surgiu um novo requisito onde foi solicitado que todas as informações sejam persistidas em arquivos (serializados).
 – Dessa forma os dados devem ficar salvo mesmo depois da finalização do sistema.<br>
