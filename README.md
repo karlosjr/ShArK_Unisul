@@ -29,7 +29,7 @@ pode fazer as seguinte operações:<br>
 JFRAME - Projete e implemente as telas para o sistema da Biblioteca Universitária da Unisul.
 
 <strong>BD - PostrgreSql</strong><br>
-O sistema deve possuir um arquivo de configuração, onde o usuário possa escolher antes da inicialização da aplicação se ela deve utilizar a persistência baseada em arquivo ou em banco de dados.
-• O arquivo pode ser desenvolvido: – Arquivo de texto comum;
-– Arquivo estilo properties;
-– Arquivo XML.
+O sistema deve possuir um arquivo de configuração, onde o usuário possa escolher antes da inicialização da aplicação se ela deve utilizar a persistência baseada em arquivo ou em banco de dados.<br>
+• O arquivo pode ser desenvolvido: – Arquivo de texto comum;<br>
+– Arquivo estilo properties;<br>
+– Arquivo XML.<br>
