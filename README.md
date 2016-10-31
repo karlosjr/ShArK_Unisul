@@ -7,9 +7,10 @@
 – O sistema deve armazenar todas informações em memória de modo que seja utilizada a estrutura de dados mais adequada para as operações em questão;<br>
 – O sistema deve permitir o cadastro de alunos;<br>
 – O sistema deve permitir o cadastro de professores<br>
-     • Tanto alunos como professores devem ser mantidos na mesma estrutura;<br>
-     • A forma de consulta de ambos é via sua matricula;<br>
-– O sistema deve permitir o cadastro de livros; • Não são permitidos o cadastro de livros repetidos;<br>
+     &nbsp• Tanto alunos como professores devem ser mantidos na mesma estrutura;<br>
+     &nbsp• A forma de consulta de ambos é via sua matricula;<br>
+– O sistema deve permitir o cadastro de livros; <br>
+• Não são permitidos o cadastro de livros repetidos;<br>
      • Um livro deve ter uma lista de exemplares. <br>
 – O sistema deve permitir o vinculo de um exemplar<br>
 com um usuário (aluno ou professor) da biblioteca<br>
