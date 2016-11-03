@@ -20,10 +20,7 @@ public class BibliotecaUnisul {
 		LivroControler livroMemoria = LivroControler.getInstance();
 		AluguelControler  aluguelMemoria = AluguelControler.getInstance(); 
 		
-		alunoMemoria.serializaAlunos();
-		professorMemoria.serializaProfessores();
-		livroMemoria.serializaLivros();
-		aluguelMemoria.serializaAluguel();
+		
 		
 		
 		

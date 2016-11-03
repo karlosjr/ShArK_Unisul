@@ -3,10 +3,11 @@ package controler;
 import java.io.*;
 import java.util.*;
 
+import Arquivo.ArquivoLivroDao;
 import modelo.*;
 
 public class LivroControler {
-
+	
 	private List<Livro> livros = new ArrayList<Livro>();
 	
 	private static LivroControler livroControler = new LivroControler();
@@ -32,6 +33,7 @@ public class LivroControler {
 
 		Livro livroInsere = new Livro(codigoLivro, titulo, autor);
 		livros.add(livroInsere);
+		
 		
 	}
 
@@ -79,84 +81,6 @@ public class LivroControler {
 
 	}
 	
-	public void serializaLivros() {
-		File arquivo = new File("BibliotecaArquivos/Livros/Livros.bin");
-		File pasta = new File("BibliotecaArquivos/Livros/");
-
-		OutputStream escritorByte = null;
-		ObjectOutputStream escritorObjeto = null;
-
-		try {
-			if (arquivo.exists() != true) {
-				pasta.mkdir();
-				arquivo.createNewFile();
-			}
-
-			arquivo.createNewFile();
-
-			escritorByte = new FileOutputStream("BibliotecaArquivos/Livros/Livros.bin");
-			escritorObjeto = new ObjectOutputStream(escritorByte);
-
-			escritorObjeto.writeObject(livros);
-			escritorObjeto.flush();
-
-		} catch (FileNotFoundException e) {
-			System.err.println(e);
-		} catch (IOException e) {
-			System.err.println(e);
-		} finally {
-			try {
-				if (escritorByte != null) {
-					escritorByte.close();
-				}
-				if (escritorObjeto != null) {
-					escritorObjeto.close();
-				}
-
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void deserializaProfessores() {
-
-		File arquivo = new File("BibliotecaArquivos/Livros/Livros.bin");
-
-		boolean arquivoExiste = arquivo.exists();
-
-		if (arquivoExiste) {
-			InputStream leitorByte = null;
-			ObjectInputStream leitorObjeto = null;
-
-			try {
-				leitorByte = new FileInputStream("BibliotecaArquivos/Livros/Livros.bin");
-				leitorObjeto = new ObjectInputStream(leitorByte);
-
-				livros = (ArrayList<Livro>) leitorObjeto.readObject();
-
-			} catch (FileNotFoundException e) {
-				System.err.println(e);
-			} catch (IOException e) {
-				System.err.println(e);
-			} catch (ClassNotFoundException e) {
-				System.err.println(e);
-			} finally {
-				try {
-					if (leitorByte != null) {
-						leitorByte.close();
-					}
-					if (leitorObjeto != null) {
-						leitorObjeto.close();
-					}
-
-				} catch (IOException e) {
-					System.err.println(e);
-				}
-			}
-		}
-
-	}
+	
 
 }
