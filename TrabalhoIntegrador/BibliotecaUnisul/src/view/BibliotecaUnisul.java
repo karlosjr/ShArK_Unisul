@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import BD_Conexao.ServicoBancoDados;
 import controler.AluguelControler;
 import controler.AlunoControler;
 import controler.LivroControler;
@@ -21,9 +22,9 @@ public class BibliotecaUnisul {
 		AluguelControler  aluguelMemoria = AluguelControler.getInstance(); 
 		
 		
+		ServicoBancoDados conn = new ServicoBancoDados();
 		
-		
-		
+		conn.getConnPostgres();
 		
 		
 	}
