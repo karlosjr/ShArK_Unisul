@@ -1,11 +1,14 @@
 package view;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
 
 import javax.swing.JOptionPane;
 
-import BD_Conexao.ServicoBancoDados;
+import BD_Conexao.DataBaseService;
 import controler.AluguelControler;
 import controler.AlunoControler;
 import controler.LivroControler;
@@ -21,10 +24,24 @@ public class BibliotecaUnisul {
 		LivroControler livroMemoria = LivroControler.getInstance();
 		AluguelControler  aluguelMemoria = AluguelControler.getInstance(); 
 		
+		Connection conn = null; 
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 		
-		ServicoBancoDados conn = new ServicoBancoDados();
+		try {
+			conn = DataBaseService.getConnPostgres();
+			ps = conn.prepareStatement("INSER INT ALUNO(MATRICULA, NOME, EXEMPLARES, CURSO) VALUES (5422, OSWALDENIR, 4, SISTEMAS)");
+					
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
-		conn.getConnPostgres();
+		
+		
+		
+		
+		
 		
 		
 	}
