@@ -5,7 +5,14 @@ import java.util.*;
 
 import modelo.*;
 
-public class Aluguel {
+public class Aluguel implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	private int idAluguel; 
 	private Usuario usuario;
 	private Livro livro;

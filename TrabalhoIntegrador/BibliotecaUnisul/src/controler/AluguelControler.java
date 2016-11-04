@@ -42,6 +42,8 @@ public class AluguelControler {
 		aluguel.setUsuario(usuario);
 		aluguel.setLivro(livro);
 		aluguel.setExemplar(exemplar);
+		
+		locates.add(aluguel);
 	}
 
 	public void DevolveLivro(int idAluguel) {
@@ -69,84 +71,5 @@ public class AluguelControler {
 		return locates;
 	}
 
-	public void serializaAluguel() {
-		File arquivo = new File("BibliotecaArquivos/Aluguel/Aluguel.bin");
-		File pasta = new File("BibliotecaArquivos/Aluguel/");
-
-		OutputStream escritorByte = null;
-		ObjectOutputStream escritorObjeto = null;
-
-		try {
-			if (arquivo.exists() != true) {
-				pasta.mkdir();
-				arquivo.createNewFile();
-			}
-
-			arquivo.createNewFile();
-
-			escritorByte = new FileOutputStream("BibliotecaArquivos/Aluguel/Aluguel.bin");
-			escritorObjeto = new ObjectOutputStream(escritorByte);
-
-			escritorObjeto.writeObject(locates);
-			escritorObjeto.flush();
-
-		} catch (FileNotFoundException e) {
-			System.err.println(e);
-		} catch (IOException e) {
-			System.err.println(e);
-		} finally {
-			try {
-				if (escritorByte != null) {
-					escritorByte.close();
-				}
-				if (escritorObjeto != null) {
-					escritorObjeto.close();
-				}
-
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void deserializaProfessores() {
-
-		File arquivo = new File("BibliotecaArquivos/Aluguel/Aluguel.bin");
-
-		boolean arquivoExiste = arquivo.exists();
-
-		if (arquivoExiste) {
-			InputStream leitorByte = null;
-			ObjectInputStream leitorObjeto = null;
-
-			try {
-				leitorByte = new FileInputStream("BibliotecaArquivos/Aluguel/Aluguel.bin");
-				leitorObjeto = new ObjectInputStream(leitorByte);
-
-				locates = (ArrayList<Aluguel>) leitorObjeto.readObject();
-
-			} catch (FileNotFoundException e) {
-				System.err.println(e);
-			} catch (IOException e) {
-				System.err.println(e);
-			} catch (ClassNotFoundException e) {
-				System.err.println(e);
-			} finally {
-				try {
-					if (leitorByte != null) {
-						leitorByte.close();
-					}
-					if (leitorObjeto != null) {
-						leitorObjeto.close();
-					}
-
-				} catch (IOException e) {
-					System.err.println(e);
-				}
-			}
-		}
-
-	}
-
+	
 }

@@ -3,6 +3,7 @@ package Arquivo;
 import java.io.*;
 import java.util.*;
 
+import controler.AluguelControler;
 import dao.LivroDao;
 import modelo.*;
 
@@ -64,14 +65,14 @@ public class ArquivoLivroDao implements LivroDao {
 		return livros;
 	}
 		
-	public void serializaLivros() {
+	private void serializaLivros() {
 		File arquivo = new File("BibliotecaArquivos/Livros/Livros.bin");
 		File pasta = new File("BibliotecaArquivos/Livros/");
-
 		OutputStream escritorByte = null;
 		ObjectOutputStream escritorObjeto = null;
 
 		try {
+			
 			if (arquivo.exists() != true) {
 				pasta.mkdir();
 				arquivo.createNewFile();
@@ -105,7 +106,7 @@ public class ArquivoLivroDao implements LivroDao {
 		}
 	}
 
-	public void deserializaLivros() {
+	private void deserializaLivros() {
 
 		File arquivo = new File("BibliotecaArquivos/Livros/Livros.bin");
 
