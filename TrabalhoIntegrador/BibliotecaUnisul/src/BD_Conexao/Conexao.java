@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DataBaseService {
+public class Conexao {
+	
+	private static String url = "jdbc:postgresql://localhost:5432/postgres";
+	private static String usuario = "postgres";
+	private static String senha = "postgres";
 
 	public static Connection getConnPostgres() {
-		String url = "jdbc:postgresql://localhost:5432/postgres";
-		String usuario = "postgres";
-		String senha = "postgres";
+		
 
 		Connection conn = null;
 
@@ -17,8 +19,10 @@ public class DataBaseService {
 			Class.forName("org.postgresql.Driver");
 
 			conn = DriverManager.getConnection(url, usuario, senha);
-
+			
 			System.out.println("Conexão realizada");
+			
+			return conn;		
 
 		} catch (ClassNotFoundException e) {
 
@@ -27,7 +31,7 @@ public class DataBaseService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
+			if (conn == null) {
 				try {
 					conn.close();
 				} catch (Exception e) {
@@ -36,7 +40,7 @@ public class DataBaseService {
 			}
 		}
 
-		return conn;
+		return null;
 
 	}
 

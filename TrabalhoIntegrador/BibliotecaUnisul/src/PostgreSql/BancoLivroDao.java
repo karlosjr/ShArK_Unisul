@@ -6,36 +6,42 @@ import java.util.*;
 
 
 
-import BD_Conexao.DataBaseService;
+import BD_Conexao.Conexao;
 import dao.LivroDao;
 import modelo.*;
 
 public class BancoLivroDao implements LivroDao {
-	
+	//"INSERT INTO ALUNO(MATRICULA, NOME, EXEMPLARESLOCADOS, NOMECURSO) VALUES (3, 'CARLOS', 4, 'SISTEMAS')"
 	
 	@Override
 	public void insereLivro(Livro livro) {
-		Connection conn = null; 
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		
-		try {
-			conn = DataBaseService.getConnPostgres();
-			ps = conn.prepareStatement("INSER INT ALUNO(MATRICULA, NOME, EXEMPLARES, CURSO) VALUES (5422, OSWALDENIR, 4, SISTEMAS)");
-					
-			ps.execute();
-		} catch (Exception e) {
-
+		int codLivro = livro.getCodigo();
+		String autor = livro.getAutor();
+		String titulo = livro.getTitulo();
+		int i = 0;
+		while(livro.getExemplares().get(i).getEdicao() != null){
+			livro.getExemplares().get(i).getCodigo();
+			livro.getExemplares().get(i).getEdicao();
+			livro.getExemplares().get(i).getLocalizacao();
+			livro.getExemplares().get(i).getStatus();
+			
+			i++;
 		}
-
 		
+		String sql = "INSERT INTO LIVRO(CODIGOLIVRO, AUTOR, TITULO) VALUES ("+ codLivro + ", '"+ autor +"','"+ titulo +"')";
 		
+		insereNoBD(sql);
 		
 	}
 
 	@Override
 	public Livro consultaLivro(int matricula) {
-		// TODO Auto-generated method stub
+		int codLivro;
+		String autor;
+		String titulo;
+		
+		
+		
 		return null;
 	}
 
@@ -57,4 +63,18 @@ public class BancoLivroDao implements LivroDao {
 		return null;
 	}
 	
+	public void insereNoBD(String sql){
+		Connection conn = null; 
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = Conexao.getConnPostgres();
+			ps = conn.prepareStatement(sql);
+					
+			ps.execute();
+		} catch (Exception e) {
+
+		}
+	}	
 }
