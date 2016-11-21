@@ -66,7 +66,7 @@ public class BancoLivroDao implements LivroDao {
 	public void insereNoBD(String sql){
 		Connection conn = null; 
 		PreparedStatement ps = null;
-		ResultSet rs = null;
+		
 		
 		try {
 			conn = Conexao.getConnPostgres();
