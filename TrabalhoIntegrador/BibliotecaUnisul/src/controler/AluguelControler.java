@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import dao.DaoFactory;
 import modelo.*;
 
 public class AluguelControler {
@@ -42,17 +43,20 @@ public class AluguelControler {
 		aluguel.setUsuario(usuario);
 		aluguel.setLivro(livro);
 		aluguel.setExemplar(exemplar);
-		
+		DaoFactory.getDaoFactoy().getAluguelDao().insereAluguel(aluguel);
 		locates.add(aluguel);
 	}
 
 	public void DevolveLivro(int idAluguel) {
 		Iterator<Aluguel> devolveLivro = locates.iterator();
-
+		DaoFactory.getDaoFactoy().getAluguelDao().removeAluguel(idAluguel);
+		
 		while (devolveLivro.hasNext()) {
 
 			if (devolveLivro.next().getIdAluguel() == idAluguel) {
 				devolveLivro.remove();
+				Aluguel aluguel = (Aluguel) devolveLivro;
+				
 			}
 		}
 	}

@@ -1,3 +1,6 @@
+
+
+
 package view;
 
 
@@ -108,8 +111,8 @@ public class ViewConsultaAluno extends JFrame {
         JButton btnSair = new JButton("fechar");
         btnSair.setBounds(159, 145, 117, 29);
         contentPane.add(btnSair);
-        ListenerSair executabotaoSair = new ListenerSair();
-        btnSair.addActionListener(executabotaoSair);
+        ListenerSair executabotaoSairAluno = new ListenerSair();
+        btnSair.addActionListener(executabotaoSairAluno);
         
         ListenerTable executabotaoConsulta = new ListenerTable();
         btnConsultar.addActionListener(executabotaoConsulta);

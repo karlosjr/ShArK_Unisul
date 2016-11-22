@@ -76,8 +76,7 @@ public class ViewCadastroProfessor extends JFrame {
 				int matricula = Integer.parseInt(varMatricula.getText());
 				String nome = varNome.getText();
 				ProfessorControler.getInstance().InsereProfessor(matricula, nome);
-				
-				
+
 				fecharTela();
 		    } catch (NumberFormatException nfe) {
 		    	JOptionPane.showMessageDialog(null, "Insira apenas números na matricula.");

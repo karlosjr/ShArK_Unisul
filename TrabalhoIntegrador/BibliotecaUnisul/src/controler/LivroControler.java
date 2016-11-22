@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import Arquivo.ArquivoLivroDao;
+import dao.DaoFactory;
 import modelo.*;
 
 public class LivroControler {
@@ -13,11 +14,15 @@ public class LivroControler {
 	private static LivroControler livroControler = new LivroControler();
 	
 	private LivroControler(){
-		
+		iniciaLivros();
 	}
 	
 	public static LivroControler getInstance() {
 		return livroControler;
+	}
+	
+	private void iniciaLivros (){
+		livros = DaoFactory.getDaoFactoy().getlivroDao().mostraLivro();
 	}
 	
 
@@ -33,14 +38,14 @@ public class LivroControler {
 
 		Livro livroInsere = new Livro(codigoLivro, titulo, autor);
 		livros.add(livroInsere);
-		
+		DaoFactory.getDaoFactoy().getlivroDao().insereLivro(livroInsere);
 		
 		
 	}
 
 	public void removeLivro(int codigo) {
 		Iterator<Livro> LivroRemover = livros.iterator();
-
+		DaoFactory.getDaoFactoy().getlivroDao().removeLivro(codigo);
         while(LivroRemover.hasNext()){
 
             if(LivroRemover.next().getCodigo() == codigo){
@@ -69,6 +74,7 @@ public class LivroControler {
 				livroLocal.setCodigo(livro.getCodigo());
 				livroLocal.setTitulo(livro.getTitulo());
 				livroLocal.setExemplares(livro.getExemplares());
+				DaoFactory.getDaoFactoy().getlivroDao().alteraLivro(livroLocal);
 				
 			} 
 		}
@@ -94,13 +100,24 @@ public class LivroControler {
 				Exemplar exemplar = new Exemplar(insereCodExemplar,localizacao,edicao,livroLocal);
 				exemplares.add(exemplar);
 				livroLocal.setExemplares(exemplares);
+				DaoFactory.getDaoFactoy().getlivroDao().alteraLivro(livroLocal);
 			} 
 		}
+		
 				
 	}
 
 	public void removeExemplar(int codigo) {
-		
+		DaoFactory.getDaoFactoy().getlivroDao().removeLivro(codigo);
+	}
+	public boolean verificaCodLivro(int codigo) {
+
+		for (Livro livroLocal : livros) {
+			if (codigo == livroLocal.getCodigo()) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

@@ -3,6 +3,7 @@ package controler;
 import java.io.*;
 import java.util.*;
 
+import dao.DaoFactory;
 import modelo.*;
 
 public class ProfessorControler {
@@ -13,11 +14,14 @@ public class ProfessorControler {
 	private static ProfessorControler professorControler = new ProfessorControler();
 	
 	private ProfessorControler(){
-		
+		iniciaProfessores();
 	}
-	
+		
 	public static ProfessorControler getInstance() {
 		return professorControler;
+	}
+	private void iniciaProfessores (){
+		professores = DaoFactory.getDaoFactoy().getProfessorDao().mostraProfessores();
 	}
 	
 	public void InsereProfessor(int matricula, String nome) {
@@ -25,14 +29,16 @@ public class ProfessorControler {
 		if(!verificaMatricula(matricula)){
 			Professor professorInsere = new Professor(matricula, nome);
 			professores.add(professorInsere);
-		}//retorno de erro se já existe a matrícula
+			DaoFactory.getDaoFactoy().getProfessorDao().insereProfessor(professorInsere);		
+		}
 		
 		
 	}
 
 	public void RemoveProfessor(int matricula) {
 		Iterator<Professor> professorRemover = professores.iterator();
-
+		DaoFactory.getDaoFactoy().getProfessorDao().removeProfessor(matricula);
+		
         while(professorRemover.hasNext()){
 
             if(professorRemover.next().getMatricula() == matricula){
@@ -66,6 +72,7 @@ public class ProfessorControler {
 				professorLocal.setMatricula(professor.getMatricula());
 				professorLocal.setNome(professor.getNome());
 				professorLocal.setCursos(professor.getCursos());
+				DaoFactory.getDaoFactoy().getProfessorDao().alteraProfessor(professorLocal);
 			} 
 		}
 	}

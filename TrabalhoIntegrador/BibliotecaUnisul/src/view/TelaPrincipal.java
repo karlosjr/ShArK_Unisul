@@ -93,10 +93,6 @@ public class TelaPrincipal extends JFrame {
 		consultaLivro.addActionListener(new ListenerConsulta());
 		mnConsulta.add(consultaLivro);
 		
-		JMenuItem consultaAluguel = new JMenuItem("Aluguel");
-		consultaAluguel.addActionListener(new ListenerConsulta());
-		mnConsulta.add(consultaAluguel);
-		
 		JMenu mnAluguel = new JMenu("Aluguel");
 		menuBar.add(mnAluguel);
 		
@@ -137,7 +133,8 @@ public class TelaPrincipal extends JFrame {
 				viewCadastroLivro.setVisible(true);
 				break;
 			case "Iserir Exemplares":
-				
+				ViewCadastraExemplar viewCadastraExemplar = new ViewCadastraExemplar();
+				viewCadastraExemplar.setVisible(true);
 				break;
 
 
@@ -166,7 +163,8 @@ public class TelaPrincipal extends JFrame {
 				viewConsultaProfessor.setVisible(true);
 				break;
 			case "Livro":
-				
+				ViewConsultaLivro viewConsultaLivro = new ViewConsultaLivro();
+				viewConsultaLivro.setVisible(true);
 				break;
 			case "Aluguel":
 				
@@ -188,7 +186,8 @@ public class TelaPrincipal extends JFrame {
 			
 			switch (acao) {
 			case "Alugar Livro":
-				
+				ViewNovoAluguel viewNovoAluguel = new ViewNovoAluguel();
+				viewNovoAluguel.setVisible(true);
 				break;
 			case "Devolver Livro":
 				
