@@ -74,12 +74,33 @@ public class LivroControler {
 		}
 	}
 
-	public void insereExemplar(String localizacao, String edicao) {
+	public void insereExemplar(int codigoLivro, String localizacao, String edicao) {
+		ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+		int digitoExemplar = 0; 
+		int index = exemplares.size();
+		if (index > 0) {
+			index--;
+
+			Exemplar UltimoExemplarLista = exemplares.get(index);
+			digitoExemplar = UltimoExemplarLista.getCodigo() + 1;
+		}
 		
+		int insereCodExemplar = codigoLivro + 100 + digitoExemplar;
+			
+		
+		Livro livro = new Livro(0, null, null);
+		for (Livro livroLocal : livros) {
+			if (codigoLivro == livroLocal.getCodigo()) {
+				Exemplar exemplar = new Exemplar(insereCodExemplar,localizacao,edicao,livroLocal);
+				exemplares.add(exemplar);
+				livroLocal.setExemplares(exemplares);
+			} 
+		}
+				
 	}
 
 	public void removeExemplar(int codigo) {
-
+		
 	}
 	
 	

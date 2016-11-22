@@ -67,9 +67,16 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmCadastrarCursos = new JMenuItem("Cadastrar Cursos");
 		itemProfessor.add(mntmCadastrarCursos);
 		
-		JMenuItem itemLivro = new JMenuItem("Livro");
-		itemLivro.addActionListener(new ListenerCadastro());
-		mnCadastro.add(itemLivro);
+		JMenu mnLivro = new JMenu("Livro");
+		mnCadastro.add(mnLivro);
+		
+		JMenuItem mntmNovoLivro = new JMenuItem("Novo Livro");
+		mntmNovoLivro.addActionListener(new ListenerCadastro());
+		mnLivro.add(mntmNovoLivro);
+		
+		JMenuItem mntmIserirExemplares = new JMenuItem("Iserir Exemplares");
+		mntmIserirExemplares.addActionListener(new ListenerCadastro());
+		mnLivro.add(mntmIserirExemplares);
 		
 		JMenu mnConsulta = new JMenu("Consulta");
 		menuBar.add(mnConsulta);
@@ -125,7 +132,11 @@ public class TelaPrincipal extends JFrame {
 				ViewCadastroProfessor viewCadastroProfessor = new ViewCadastroProfessor();
 				viewCadastroProfessor.setVisible(true);
 				break;
-			case "Livro":
+			case "Novo Livro":
+				ViewCadastraLivro viewCadastroLivro = new ViewCadastraLivro();
+				viewCadastroLivro.setVisible(true);
+				break;
+			case "Iserir Exemplares":
 				
 				break;
 
