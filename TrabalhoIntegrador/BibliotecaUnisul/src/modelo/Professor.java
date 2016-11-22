@@ -2,6 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Professor extends Usuario implements Serializable {
 
@@ -11,13 +12,13 @@ public class Professor extends Usuario implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<String> cursosParticipa;
+	private List<String> cursosParticipa;
 
-	public ArrayList<String> getCursos() {
+	public List<String> getCursos() {
 		return cursosParticipa;
 	}
 	
-	public void setCursos(ArrayList<String> cursos){
+	public void setCursos(List<String> cursos){
 		cursosParticipa = cursos;
 	}
 

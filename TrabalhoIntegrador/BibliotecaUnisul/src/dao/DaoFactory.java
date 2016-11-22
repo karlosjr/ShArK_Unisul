@@ -5,7 +5,7 @@ import Arquivo.ArquivoDaoFactory;
 public abstract class DaoFactory {
 
 	public static DaoFactory getDaoFactoy() {
-		int flagFactory = 1;
+		int flagFactory = SingletonBanco.getInstance().getFlag();
 		switch (flagFactory) {
 		case 1:
 			return new ArquivoDaoFactory();

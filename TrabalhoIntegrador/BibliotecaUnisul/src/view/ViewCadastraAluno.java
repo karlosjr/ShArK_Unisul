@@ -1,7 +1,6 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -72,12 +71,12 @@ public class ViewCadastraAluno extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setBounds(55, 180, 117, 29);
 		contentPane.add(btnCadastrar);
-		ExecutaBotao executabotao1 = new ExecutaBotao();
+		ExecutaBotaoCadastro executabotao1 = new ExecutaBotaoCadastro();
 		btnCadastrar.addActionListener(executabotao1);
 
 	}
 
-	private class ExecutaBotao implements ActionListener {
+	private class ExecutaBotaoCadastro implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -99,6 +98,9 @@ public class ViewCadastraAluno extends JFrame {
 		}
 
 	}
+	
+	
+	
 	private void fecharTela (){
 		this.setVisible(false);
 	}

@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import controler.AlunoControler;
+
 import controler.ProfessorControler;
 
 
-public class ViewCadastraProfessor extends JFrame {
+public class ViewCadastroProfessor extends JFrame {
 	/**
 	 * 
 	 */
@@ -26,7 +26,7 @@ public class ViewCadastraProfessor extends JFrame {
 	private JTextField varCurso;
 	private JLabel lblAlunoCadastro;
 
-	public ViewCadastraProfessor() {
+	public ViewCadastroProfessor() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 238, 237);
 		contentPane = new JPanel();
